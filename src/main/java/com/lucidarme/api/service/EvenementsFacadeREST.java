@@ -6,9 +6,13 @@
 package com.lucidarme.api.service;
 
 import com.lucidarme.api.entities.Evenements;
+import com.lucidarme.api.entities.User;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -23,11 +27,16 @@ import javax.ws.rs.core.MediaType;
  *
  * @author lucidarme
  */
+@Stateless
 @Path("/evenements")
 @Produces("application/xml")
+@Api(value="/evenements")
 public class EvenementsFacadeREST {
 
     @GET
+    @ApiOperation(
+            value = "Get all events",
+            response = Evenements.class)
     public List<Evenements> getEvenements() {
         return new GestionBD().getEvenements();
     
@@ -35,24 +44,36 @@ public class EvenementsFacadeREST {
     
     @GET
     @Path("/{id}")
+    @ApiOperation(
+            value = "Get event by id",
+            response = Evenements.class)
     public Evenements getEvenementById(@PathParam("id") int ID){
         return new GestionBD().getEvenementById(ID);
     }
     
     @GET
     @Path("/type/{type}")
+    @ApiOperation(
+            value = "Get events by type",
+            response = Evenements.class)
     public List<Evenements> getEvenementsByType(@PathParam("type") String type){
         return new GestionBD().getEvenementsByType(type);
     }
     
     @GET
     @Path("/owner={owner}")
+    @ApiOperation(
+            value = "Get events by owner",
+            response = Evenements.class)
     public List<Evenements> getEvenementsByOwner(@PathParam("owner") int owner){
         return new GestionBD().getEvenementsByOwner(owner);
     }
     
     @GET
     @Path("/isvalid={isvalid}")
+    @ApiOperation(
+            value = "Get events by validity",
+            response = Evenements.class)
     public List<Evenements> getEvenementsByIsValid(@PathParam("isvalid") boolean isvalid){
         return new GestionBD().getEvenementsByIsvalid(isvalid);
     }
@@ -60,6 +81,9 @@ public class EvenementsFacadeREST {
     @POST
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Post event",
+            response = Evenements.class)
     public void createEvenement(@FormParam("name") String name, @FormParam("price") String price, 
                             @FormParam("type") String type, @FormParam("imageLink") String imageLink,
                             @FormParam("description") String description, @FormParam("date") String date,
@@ -77,6 +101,9 @@ public class EvenementsFacadeREST {
     @Path("/modify/eventid={eventid}")
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    @ApiOperation(
+            value = "Put event",
+            response = Evenements.class)
     public void modifyEvenement(@PathParam("eventid") int eventid,
                             @FormParam("name") String name, @FormParam("price") String price, 
                             @FormParam("type") String type, @FormParam("imageLink") String imageLink,
