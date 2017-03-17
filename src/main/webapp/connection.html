@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Connection à votre espace PRO</title>
+  
+  
+  
+    <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+
+  <body>
+      
+      
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Login</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="nom" id="login-name">
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="mot de passe" id="login-pass">
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+                                <div id = "error">
+                                </div>
+				<a id="but_connection"  class="btn btn-primary btn-large btn-block" href="#" >Connection</a>
+                                <script type="text/javascript">
+
+                                    var myLink = document.getElementById('but_connection');
+                                    myLink.onclick = function(){
+
+                                        var head= document.getElementsByTagName('head')[0];
+                                        var script = document.createElement("script");
+                                        script.type = "text/javascript";
+                                        script.src = "js/isUserExist.js";
+
+                                        head.appendChild(script);
+                                        return false;
+                                    }
+                                </script>
+				<a class="login-link" href="inscription.html">Vous n'avez pas de compte?</a>
+			</div>
+		</div>
+	</div>
+</body>
+  
+</html>

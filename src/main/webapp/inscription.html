@@ -1,0 +1,58 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Creation de compte</title>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<!-- Custom Theme files -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Checkbox Background Signup Form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--Google Fonts-->
+</head>
+<body>
+
+<div class="signup">
+		<span class="ribben">CREATION DE COMPTE</span>
+                <p>Nom : <span class="dot"> </span></p>
+		<input id="name" type="text" required="">
+                <p>Email : <span class="dot"> </span></p>
+		<input id="email" type="text" required="">
+                <p>Adresse : <span class="dot"> </span></p>
+		<input id="adress" type="text" required="">
+		<p>Mot de passe : <span class="dot"> </span></p>
+	 	<input id="password1" type="password" placeholder="" required="">
+	 	<p>Confirme le : <span class="dot"> </span></p>
+	 	<input id="password2" type="password" placeholder="" required="">
+                <div id="error">
+                </div>
+	 	<input id="sendform" type="submit" value="ENREGISTRER!">
+                
+                <script type="text/javascript">
+                    var myLink = document.getElementById('sendform');
+                    myLink.onclick = function(){
+
+                        var head= document.getElementsByTagName('head')[0];
+                        var script = document.createElement("script");
+                        script.type = "text/javascript";
+                        script.src = "js/postInscription.js";
+
+                        head.appendChild(script);
+                        return false;
+                    }
+                </script>
+</div>
+<div class="copyright">
+	<p>Template by <a href="http://w3layouts.com/" target="-blank"> W3layouts </a></p>
+</div>
+<!--signup page end here-->
+</body>
+</html>
