@@ -47,3 +47,6 @@
 
         }
         
+function booking(){
+    window.location = "booking.html?eventid="+ GetURLParameter('eventid');
+}

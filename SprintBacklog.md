@@ -69,3 +69,12 @@
   * Solution trouvée: transformer mon projet ant en projet maven.
   * L'application semble correctement connectée à la base de donnée à présent, cependant la base de donnée ne veut pas se relancer
 
+## 18/03
+  * Recherche de solution pour le problème de lancement de base de donnée.
+  * Les logs affichent une erreur de cache, et Grafana indique que la mémoire ram est quasiement à 100% lorsque glassfish est lancé. Il me faut donc un serveur avec plus de ram.
+  * Augmentation de la puissance du serveur pour pouvoir lancer la base de donnée.
+
+## 19/03
+  * Implementation de la requète DELETE pour les evenements.
+  * Ajout des fonctions "modifier" et "supprimer" pour l'administrateur
+  * Début d'implementation de la réservation de place pour un evenement

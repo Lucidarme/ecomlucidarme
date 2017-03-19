@@ -29,7 +29,7 @@ public class SwaggerJaxrsConfig extends HttpServlet {
 		beanConfig.setTitle("ecomlucidarme");
 		beanConfig.setDescription("Swagger API");
 		beanConfig.setSchemes(new String[] { "http" });
-		beanConfig.setHost("localhost:8080");
+		beanConfig.setHost("46.101.207.95:8080");
 		beanConfig.setBasePath("/ecomlucidarme/api");
 		beanConfig.setResourcePackage("com.lucidarme.api.service");
 		beanConfig.setScan(true);

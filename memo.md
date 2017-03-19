@@ -7,6 +7,7 @@
   * :4848 -> Admin Glassfish
   * :3000 -> Interface Grafana
   * :8083 -> Interface InfluxDB
+  * :8080/ecomlucidarme/index_swagger.html -> Interface Swagger
   * :8086 -> Port d'écoute d'InfluxDB, pas d'IHM
   * :3306 -> Port d'écoute de Mysql, pas d'IHM
 

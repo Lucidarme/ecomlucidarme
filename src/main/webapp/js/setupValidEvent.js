@@ -1,16 +1,18 @@
 var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myFunction(this);
-    }
-};
+
 var eventid = GetURLParameter('eventid');
+var datevalid = GetURLParameter('datevalid');
 var url = "rest/evenements/" + eventid;
 
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this,datevalid);
+    }
+};
 xhttp.open("GET", url, true);
 xhttp.send();
 
-function myFunction(xml) {
+function myFunction(xml,datevalid) {
     var xmlDoc = xml.responseXML;
     var owner = xmlDoc.getElementsByTagName("owner")[0].childNodes[0].nodeValue;
     var name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
@@ -25,6 +27,12 @@ function myFunction(xml) {
     document.getElementById("description").value = description;
     document.getElementById("type").value = type;
     document.getElementById("imageLink").value = imageLink;
+    
+    if(datevalid === "true"){
+        var date = xmlDoc.getElementsByTagName("date")[0].childNodes[0].nodeValue;
+        document.getElementById("date").value = date;
+
+    }
 }
 
 

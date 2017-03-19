@@ -266,6 +266,29 @@ public class GestionBD implements InterfaceGestionBD{
         } 
     }
     
+    
+    @Override
+    public void deleteEvenementById(int eventid) {
+Connection con = null;
+
+        try {
+
+            con = getConnection();
+
+            PreparedStatement st = con.prepareStatement("delete from evenements where "
+                                                                + "id = " + eventid);
+
+            st.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } 
+    }
+    
+    
+    
+    
+    
     @Override
     public List<User> getUsers() {
         Connection con = null;
@@ -429,6 +452,7 @@ private Connection getConnection(){
         return con;
 
 }
+
 
 
 

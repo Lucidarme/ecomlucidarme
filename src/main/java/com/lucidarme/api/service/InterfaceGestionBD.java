@@ -23,6 +23,7 @@ public interface InterfaceGestionBD {
     public List<Evenements> getEvenementsByIsvalid(boolean isvalid);
     public void createEvenement(Evenements evenement);
     public void modifyEvenementById(int eventid, Evenements evenement);
+    public void deleteEvenementById(int eventid);
     
     public List<User> getUsers();
     public User getUserById(int id);

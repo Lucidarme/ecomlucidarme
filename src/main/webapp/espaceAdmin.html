@@ -57,10 +57,15 @@
             <div class="col-md-3">
                 <p class="lead">Mon espace ADMIN</p>
                 <div class="list-group">
+                    <a  id="novalidevent" onClick="filterEventValid(false)" class="list-group-item">Evenements en attente de validation</a>
+                    <a  id="validevent" onClick="filterEventValid(true)" class="list-group-item">Evenements validés</a>
+                    <a class="list-group-item"></a>
+
                     <a id="name" href="#" class="list-group-item" >Nom</a>
                     <a id="email" href="#" class="list-group-item">email</a>
                     <a id="adress" href="#" class="list-group-item">adresse</a>
                     <a class="list-group-item"></a>
+   
                     <a id="but_newevent" href="#" class="list-group-item">Soumettre un nouvel evenement</a>
                     
                     <script type="text/javascript">
@@ -76,6 +81,8 @@
                             return false;
                         }
                     </script>
+
+
                 
                 </div>
             </div>
@@ -85,8 +92,8 @@
 
                 <div class="row carousel-holder">
 
-                    <div class="col-md-12">
-                        <p>Ces evenements n'ont pas encore été validé. Vous pouvez visualiser les dates proposés par l'organisateur dans la description. Lors de la validation, pensez a supprimer ces dates de la description, et d'ajouter la date que vous souhaitez dans l'espace prévu a cet effet.</p>
+                    <div class="col-md-12" id="descriptionContainer">
+                       
                     </div>
 
                 </div>

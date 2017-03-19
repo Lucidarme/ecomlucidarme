@@ -6,7 +6,6 @@
 package com.lucidarme.api.service;
 
 import com.lucidarme.api.entities.Evenements;
-import com.lucidarme.api.entities.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.text.SimpleDateFormat;
@@ -17,6 +16,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -118,4 +118,12 @@ public class EvenementsFacadeREST {
         new GestionBD().modifyEvenementById(eventid, evenement);
     }
     
+    @DELETE
+    @Path("/delete/eventbyid={eventid}")
+    @ApiOperation(
+            value = "delete event",
+            response = Evenements.class)
+    public void deleteEvenementById(@PathParam("eventid") int eventid){
+        new GestionBD().deleteEvenementById(eventid);
+    }
 }
