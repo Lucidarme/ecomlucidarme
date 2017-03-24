@@ -88,7 +88,7 @@ public class EvenementsFacadeREST {
                             @FormParam("type") String type, @FormParam("imageLink") String imageLink,
                             @FormParam("description") String description, @FormParam("date") String date,
                             @FormParam("owner") int owner, @FormParam("isvalid") Boolean isvalid){
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date_finale = new Date();
             try {
                 date_finale = (Date)formatter.parse(date);
@@ -109,7 +109,7 @@ public class EvenementsFacadeREST {
                             @FormParam("type") String type, @FormParam("imageLink") String imageLink,
                             @FormParam("description") String description, @FormParam("date") String date,
                             @FormParam("owner") int owner, @FormParam("isvalid") Boolean isvalid){
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date_finale = new Date();
             try {
                 date_finale = (Date)formatter.parse(date);

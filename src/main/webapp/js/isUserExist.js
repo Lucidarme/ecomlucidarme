@@ -1,9 +1,24 @@
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        myFunction(this);
-    }
-    else{
+function isUserExist(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+        }
+
+    };
+    var name = document.getElementById("login-name").value;
+    var pass = document.getElementById("login-pass").value;
+
+    var url = "rest/user/connect/" + name + "&" + pass;
+
+
+    xhttp.open("GET", url, true);
+    xhttp.send();
+}
+function myFunction(xml) {
+    var xmlDoc = xml.responseXML;
+
+    if(typeof xmlDoc.getElementsByTagName("id")[0] === 'undefined'){
         var element =  document.getElementById('errortext');
         if (typeof(element) != 'undefined' && element != null){}
         else{
@@ -15,18 +30,7 @@ xhttp.onreadystatechange = function() {
             eventRoot.appendChild(p);
         }
     }
-};
-var name = document.getElementById("login-name").value;
-var pass = document.getElementById("login-pass").value;
 
-var url = "rest/user/connect/" + name + "&" + pass;
-
-
-xhttp.open("GET", url, true);
-xhttp.send();
-
-function myFunction(xml) {
-    var xmlDoc = xml.responseXML;
     var id = xmlDoc.getElementsByTagName("id")[0].childNodes[0].nodeValue;
     var role = xmlDoc.getElementsByTagName("role")[0].childNodes[0].nodeValue;
     

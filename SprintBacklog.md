@@ -21,7 +21,7 @@
 ## 9/03
   * Après plusieurs heures de reflexion, première reussite de lien entre un fichier xml généré par l'API REST et le template.
   * Modification de l'IHM pour pouvoir afficher seulement les evenements présents dans la base de donnée.
-  * Ajout de script javascript pour afficher seulement les evenements qui interessent l'utilisateur, suivant la catégorie ou la période désiré
+  * Ajout de script javascript pour afficher seulement les evenements qui interessent l'utilisateur, suivant la catégorie ou la période désirée
   
 ## 10/03
   * Installation de Swagger
@@ -78,3 +78,13 @@
   * Implementation de la requète DELETE pour les evenements.
   * Ajout des fonctions "modifier" et "supprimer" pour l'administrateur
   * Début d'implementation de la réservation de place pour un evenement
+
+## 23/03
+  * Nouvelle table dans la base de donnée: Orders
+  * La réservation est à présent opérationnelle
+  * Ajout d'une fonction administrateur pour voir les reservations en fonction des evenements
+  * Reglage de quelques bugs
+  * Creation d'un fichier docker-compose.yml pour Glassfish
+  * Nouvelle augmentation de la puissance du serveur pour pouvoir rester déployé plus de 12h, et ne pas crash a la première tentative de connexion à la console administrateur
+  * L'heure ne semble plus s'enregistrer dans la base de donnée, mais pas de solution dans l'immediat
+

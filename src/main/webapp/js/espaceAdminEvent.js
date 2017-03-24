@@ -73,7 +73,7 @@ function myFunction(xml, eventvalid) {
 
         
 
-        if(eventvalid === "false")
+        if(eventvalid !== "true")
             duplicateFalse(i,
                         xmlDoc.getElementsByTagName("id")[i].childNodes[0].nodeValue,
                         xmlDoc.getElementsByTagName("name")[i].childNodes[0].nodeValue,
@@ -206,15 +206,19 @@ function duplicateTrue(i, id, name, imageLink, price, description, date) {
     input2.value="Supprimer";
     input2.id="delete" +i;
     a_3.appendChild(input2);
+    
+    var a_4 = document.createElement('a');
+    a_4.href="orderByEvent.html?eventid="+id;
+    var input3 = document.createElement('input');
+    input3.className="pull-center";
+    input3.type="button";
+    input3.value="Réservations";
+    input3.id="book" +i;
+    a_4.appendChild(input3);
+    
     div4.appendChild(a_2);
     div4.appendChild(a_3);
-    var p_3 = document.createElement('p');
-
-    var span5 = document.createElement('span');
-    span5.className ="glyphicon glyphicon-star";
-    p_3.appendChild(span5);
-    
-    div4.appendChild(p_3);
+    div4.appendChild(a_4);
 
 
 

@@ -6,6 +6,7 @@
 package com.lucidarme.api.service;
 
 import com.lucidarme.api.entities.Evenements;
+import com.lucidarme.api.entities.Order;
 import com.lucidarme.api.entities.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,14 +28,12 @@ import javax.sql.DataSource;
  */
 @Stateless
 public class GestionBD implements InterfaceGestionBD{
-    //String url = "jdbc:mysql://46.101.136.85:3306/ecom";
     String url = "jdbc:mysql://46.101.207.95:3306/ecom";
     String driver = "com.mysql.jdbc.Driver";
 
     String userName = "lucidarme";
     String password = "bikravedushit";
-    /*@Resource(lookup = "java:/ecomlucidarme/ecomDB")
-    private DataSource dataSource;*/
+
 
     private Evenements setEvenement(ResultSet rs) throws SQLException{
         Evenements evenement = new Evenements();
@@ -61,6 +60,19 @@ public class GestionBD implements InterfaceGestionBD{
         user.setAdress(rs.getString(6));
         
         return user;
+    }
+    
+    private Order setOrder(ResultSet rs) throws SQLException{
+        Order order = new Order();
+        order.setId(rs.getShort(1));
+        order.setFirstname(rs.getString(2));
+        order.setName(rs.getString(3));
+        order.setEmail(rs.getString(4));
+        order.setBluecard(rs.getString(5));
+        order.setIdevent(rs.getInt(6));
+        order.setNbplace(rs.getInt(7));
+        
+        return order;
     }
     
     @Override
@@ -425,6 +437,88 @@ Connection con = null;
     }
 
 
+    @Override
+    public List<Order> getOrders() {
+        Connection con = null;
+
+        List<Order> orders = new ArrayList<Order>();
+        try {
+
+            con = getConnection();
+
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from orders");
+
+            while (rs.next()) {
+
+                orders.add(setOrder(rs));
+            }
+        } catch (SQLException ex) {
+        }finally {
+    	    if ( con != null ) {
+    	        try {
+    	            con.close();
+    	        } catch ( SQLException ignore ) {
+    	        }
+    	    }
+        }
+        return orders;
+    }
+
+    
+    @Override
+    public void createOrder(Order order) {
+        Connection con = null;
+
+        try {
+
+            con = getConnection();
+
+
+            PreparedStatement st = con.prepareStatement("insert into orders(firstname, name, email, bluecard, idevent, nbplace) values(?,?,?,?,?,?)");
+            st.setString(1,order.getFirstname());
+            st.setString(2,order.getName());
+            st.setString(3,order.getEmail());
+            st.setString(4,order.getBluecard());
+            st.setInt(5,order.getIdevent());
+            st.setInt(6,order.getNbplace());
+
+            
+            st.executeUpdate();                
+
+        } catch (SQLException ex) {
+        } 
+    }
+
+    @Override
+    public List<Order> getOrdersByEventId(int eventid) {
+        Connection con = null;
+
+        List<Order> orders = new ArrayList<Order>();
+        try {
+
+            con = getConnection();
+
+
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select * from orders where idevent=" + eventid);
+
+            while (rs.next()) {
+
+                orders.add(setOrder(rs));
+            }
+        } catch (SQLException ex) {
+        }finally {
+    	    if ( con != null ) {
+    	        try {
+    	            con.close();
+    	        } catch ( SQLException ignore ) {
+    	        }
+    	    }
+        }
+        return orders;
+    }
 
 
 
@@ -452,6 +546,7 @@ private Connection getConnection(){
         return con;
 
 }
+
 
 
 

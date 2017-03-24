@@ -6,6 +6,7 @@
 package com.lucidarme.api.service;
 
 import com.lucidarme.api.entities.Evenements;
+import com.lucidarme.api.entities.Order;
 import com.lucidarme.api.entities.User;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -31,5 +32,8 @@ public interface InterfaceGestionBD {
     public User getUserByNameAndPassword(String name, String password);
     public void createUser(User user);
  
+    public List<Order> getOrders();
+    public void createOrder(Order order);
+    public List<Order> getOrdersByEventId(int eventid);
     
 }

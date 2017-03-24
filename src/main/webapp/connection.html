@@ -8,7 +8,7 @@
   
     <link rel="stylesheet" href="css/style.css">
 
-  
+    <script src="js/isUserExist.js"></script>
 </head>
 
 
@@ -33,21 +33,8 @@
 				</div>
                                 <div id = "error">
                                 </div>
-				<a id="but_connection"  class="btn btn-primary btn-large btn-block" href="#" >Connection</a>
-                                <script type="text/javascript">
+				<a id="but_connection" onclick="isUserExist()"  class="btn btn-primary btn-large btn-block" >Connection</a>
 
-                                    var myLink = document.getElementById('but_connection');
-                                    myLink.onclick = function(){
-
-                                        var head= document.getElementsByTagName('head')[0];
-                                        var script = document.createElement("script");
-                                        script.type = "text/javascript";
-                                        script.src = "js/isUserExist.js";
-
-                                        head.appendChild(script);
-                                        return false;
-                                    }
-                                </script>
 				<a class="login-link" href="inscription.html">Vous n'avez pas de compte?</a>
 			</div>
 		</div>
